@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+import { Allotment } from "allotment";
+import "allotment/dist/style.css";
+import "./App.css"
+import Projection from "./components/projection";
+import TopHeader from "./components/topHeader.js";
+import Archive from "./components/archive.js";
 
-function App() {
+export default function App() {
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <main className="outerBorder">
+        <div className="outerContainer">
+          
+          <TopHeader />
+          
+          <Allotment defaultSizes={[1, 2]}>
+            <Allotment.Pane minSize={0} maxSize={200}>
+              
+              <div className="archivePanel">
+                
+                <div className="archiveControl">
+                  <button>+</button>
+                  <div className="box"></div>
+                </div>
+                
+                <Archive
+                  
+                />
+              
+              </div>
+            </Allotment.Pane>
+            <div className="projectionPanel">
+              
+              <Projection
+             
+              />
+            
+            </div>
+          </Allotment>
+        </div>
+      </main>
+  )
 }
-
-export default App;
