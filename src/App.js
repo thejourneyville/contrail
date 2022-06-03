@@ -10,8 +10,7 @@ export default function App() {
 
   const [entries, setEntries] = React.useState(
     [
-      {id: createId(), body: "this is a test of your emergency broadcast system"},
-      {id: createId(), body: "second entry"}
+      {id: createId(), body: ""},
     ])
 
   const [currentId, setCurrentId] = React.useState(entries[0].id)
@@ -22,17 +21,59 @@ export default function App() {
     
     let count = 0
     let chosenLetters = ""
-    while (count < 5) {
+    while (count < 10) {
       chosenLetters += "abcdefghijklmnopqrstuvwxyz"[Math.floor(Math.random() * 26)]
       count++
     }
     return nums + chosenLetters
   }
+
+  function createEntry() {
+    setEntries((currentEntries) => {
+      const newEntry = {id: createId(), body: ""}
+      setCurrentId(newEntry.id)
+      const newArray = currentEntries.map(entry => entry)
+      newArray.unshift(newEntry)
+      return newArray
+    })
+  }
+
+  function removeEntry() {
+    // clears body if only 1 entry exists
+    if (entries.length === 1) {
+      return setEntries(oldEntries => {
+        const oldEntry = oldEntries[0]
+        return [{...oldEntry, body: ""}]
+      })
+    }
+    // will set currentIdx of entry succeeding removed entry to hold place
+    setEntries((currentEntries) => {
+      let flag = false
+      let nextCurrentEntry = undefined
+      for (let idx = 0; idx < currentEntries.length; idx++) {
+        if (flag) {
+          nextCurrentEntry = currentEntries[idx].id
+          break
+        }
+        if (idx < currentEntries.length - 1) {
+          if (currentEntries[idx].id === currentId) {
+            flag = true
+          } 
+        } else {
+          // will set currentIdx to 2nd to last entry if last entry is removed
+          nextCurrentEntry = currentEntries[currentEntries.length - 2].id
+        }
+      }
+      // filters out selected entry from entries
+      const newArray = currentEntries.filter((entry) => currentId !== entry.id)
+      setCurrentId(nextCurrentEntry)
+      return newArray
+    })
+  }
   
   function loadCurrentId(event) {
     //controlled by Archive, will send selected ID from onClick handler and update currentId state
     const {id} = event.target
-    console.log("clicked on ID: ",id)
     setCurrentId(id)
   }
 
@@ -63,7 +104,8 @@ export default function App() {
               <div className="archivePanel">
                 
                 <div className="archiveControl">
-                  <button>+</button>
+                  <button className="add" onClick={createEntry}>+</button>
+                  <button className="del" onClick={removeEntry}>-</button>
                   <div className="box"></div>
                 </div>
                 
