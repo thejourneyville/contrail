@@ -9,11 +9,17 @@ import Archive from "./components/archive.js";
 export default function App() {
 
   const [entries, setEntries] = React.useState(
+
+    () => JSON.parse(localStorage.getItem("entries")) ||
     [
-      {id: createId(), body: ""},
+      {id: createId(), body: createTimeStamp()},
     ])
 
   const [currentId, setCurrentId] = React.useState(entries[0].id)
+  
+  React.useEffect(() => {
+    localStorage.setItem("entries", JSON.stringify(entries))
+  }, [entries])
 
   function createId() {
     // creates random id consisting of max 8 digits and 5 random letters
@@ -28,9 +34,14 @@ export default function App() {
     return nums + chosenLetters
   }
 
+  function createTimeStamp() {
+    const timeData = new Date()
+    return `${timeData.toDateString().slice(4)} ${timeData.toLocaleTimeString()}`
+  }
+
   function createEntry() {
     setEntries((currentEntries) => {
-      const newEntry = {id: createId(), body: ""}
+      const newEntry = {id: createId(), body: createTimeStamp()}
       setCurrentId(newEntry.id)
       const newArray = currentEntries.map(entry => entry)
       newArray.unshift(newEntry)
@@ -43,7 +54,8 @@ export default function App() {
     if (entries.length === 1) {
       return setEntries(oldEntries => {
         const oldEntry = oldEntries[0]
-        return [{...oldEntry, body: ""}]
+        localStorage.clear();
+        return [{...oldEntry, body: createTimeStamp()}]
       })
     }
     // will set currentIdx of entry succeeding removed entry to hold place

@@ -6,7 +6,7 @@ export default function Archive({entries, loadCurrentId}) {
     //mapping out all entries as <divs>
     return (
     <div key={entry.id} className="contrailTab" id={entry.id} onClick={(event) => loadCurrentId(event)}>
-      {entry.body.slice(0,15)}
+      {entry.body.slice(0,27)}
     </div>
     )
   })
