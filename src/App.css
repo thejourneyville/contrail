@@ -104,11 +104,11 @@
 }
 
 .topHeader {
-  height: 2.5rem;
+  height: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: .5rem;
+  padding-bottom: .3rem;
   box-shadow: 0px 5px 5px -10px rgba(0,0,0,.2);
   z-index: 1;
 
@@ -116,17 +116,18 @@
 
 .topHeaderTitle {
   font-family: 'Alegreya Sans SC', sans-serif;
-  font-size: 2.5rem;
+  font-size: 1rem;
   margin-left: 1.5rem;
   letter-spacing: 2rem;
-  color: rgb(0, 0, 0);
-  text-shadow: 0px 1.5px 2px #ffffff;
-  animation: titleSpacingExpand 1s ease-in-out;
+  color: rgb(75, 75, 75);
+  text-shadow: 0px 1.5px 5px #ffffff;
+  animation: titleSpacingExpand 3s ease-in-out;
 }
  @keyframes titleSpacingExpand {
     0% {
        letter-spacing: .1rem;
        color: rgb(250, 250, 250);
+       text-shadow: 0px 1.5px 2px #ffffff;
     }
  }
 
