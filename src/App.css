@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
 
+body {
+  background-color: rgb(75, 75, 75);
+}
+
 .outerBorder {
   height: 100vh;
   display: flex;
@@ -9,8 +13,8 @@
 }
 
 .outerContainer {
-  margin: 3rem;
-  height: 75vh;
+  margin: 0;
+  height: 80vh;
   width: 100%;
   display: flex;
   flex-flow: column nowrap;
@@ -116,7 +120,7 @@
 
 .topHeaderTitle {
   font-family: 'Alegreya Sans SC', sans-serif;
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin-left: 1.5rem;
   letter-spacing: 2rem;
   color: rgb(75, 75, 75);
