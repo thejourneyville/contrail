@@ -12,7 +12,6 @@ export const handleSave = (entries, currentId, size) => {
         });
         saveAs(blob, `${currentTimeStamp}.txt`);
     } else if (size > 1) {
-        console.log("hi")
         const allEntries = entries
             .map((entry) => {
                 return "ENTRY\n".concat(entry.body).concat("\n\n");
