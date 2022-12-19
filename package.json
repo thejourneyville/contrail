@@ -2,7 +2,7 @@
     "name": "contrail",
     "version": "0.2.0",
     "homepage": "https://thejourneyville.github.io/contrail",
-    "author": "Ben Malberg",
+    "author": "BM",
     "license": "ISC",
     "private": true,
     "dependencies": {
