@@ -1,6 +1,6 @@
 import { saveAs } from "file-saver";
 
-export const handleSave = (entries, currentId, createTimeStamp, size) => {
+export const handleSave = (entries, currentId, size) => {
     if (size === 1) {
         const current = entries.find((entry) => entry.id === currentId);
         const currentEntry = current.body;

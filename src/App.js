@@ -142,7 +142,6 @@ export default function App() {
                                         handleSave(
                                             entries,
                                             currentId,
-                                            createTimeStamp,
                                             1
                                         )
                                     }
