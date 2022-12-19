@@ -5,5 +5,5 @@
 draggable panels<br>
 add/remove entries<br>
 time/date stamps<br>
-persists to local storage<br><br>
+persists to local storage<br><br><br>
 <i>made in React by</i> https://twitter.com/Bennyboy_JP
