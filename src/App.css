@@ -1,209 +1,221 @@
-@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0");
 
-
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 48;
 }
 
-
 body {
-  background-color: rgb(75, 75, 75);
+    background-color: rgb(75, 75, 75);
 }
 
 .outerBorder {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .outerContainer {
-  margin: 0;
-  height: 80vh;
-  width: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  border: 1px solid rgba(0,0,0,.1);
-  /* border-radius: 5px; */
-  box-shadow: 0px 5px 5px -2px rgba(0,0,0,.2);
-  padding: 0rem .5rem .5rem;
-  background-color: rgb(75, 75, 75);
+    margin: 0;
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    /* border-radius: 5px; */
+    box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.2);
+    padding: 0rem 0.5rem 0.5rem;
+    background-color: rgb(75, 75, 75);
 }
 
 .archivePanel {
-  display: flex;
-  flex-flow: column nowrap;
-  height: 99.5%;
-  font-family: 'Alegreya Sans SC', sans-serif;
+    display: flex;
+    flex-flow: column nowrap;
+    height: 99.5%;
+    font-family: "Alegreya Sans SC", sans-serif;
 }
 
-.archiveControl{
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  color: grey;
-  
+.archiveControl {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
 }
 
-.add, .del {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.archiveControl,
+.add .del {
+    cursor: pointer;
+    color: darkgrey;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 100;
+    font-size: 1rem;
+    background-color: rgb(75, 75, 75);
 }
 
-.archiveControl .add {
-  border: none;
-  cursor: pointer;
-  color: darkgrey;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 100;
-  font-size: 1.5rem;
-  width: 2rem;
-  background-color: rgb(75, 75, 75);
-
+.archiveControl .add:hover {
+    color: skyblue;
 }
 
-.archiveControl .add:hover{
-  color:skyblue;
+.archiveControl .add:active {
+    background-color: skyblue;
+    color: black;
 }
 
-.archiveControl .add:active{
-  background-color: skyblue;
-  color: black;
+.archiveControl .del:hover {
+    color: red;
 }
 
-.archiveControl .del {
-  border: none;
-  cursor: pointer;
-  color: darkgrey;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 100;
-  font-size: 1.5rem;
-  width: 2rem;
-  background-color: rgb(75, 75, 75);
+.archiveControl .del:active {
+    background-color: red;
+    color: black;
 }
 
-.archiveControl .del:hover{
-  color: red;
+.saveEntry {
+    color: darkgrey;
+    cursor: pointer;
 }
 
-.archiveControl .del:active{
-  background-color: red;
-  color: black;
+.saveAllEntries {
+    font-family: "Work Sans", Arial, Helvetica, sans-serif;
+    font-size: 0.85rem;
+    color: darkgrey;
+    cursor: pointer;
 }
 
-.contrailTab{
-  padding: 1rem 0rem 1rem .5rem;
-  color: grey;
-  border-bottom: 1px dotted grey;
-  cursor: pointer;
+.saveEntry:hover,
+.saveAllEntries:hover {
+    color: white;
 }
 
-.contrailTab:hover{
-  background-color: darkgrey;
-  color: white;
-  cursor: pointer;
+.contrailTab {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0rem 1rem 0.25rem;
+    border-bottom: 1px dotted grey;
+    cursor: pointer;
+    gap: 0.25rem;
 }
 
-.contrailTab:active{
-  background-color: skyblue;
-  color: white;
+.contrailTabCurrent {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0rem 1rem 1rem;
+    cursor: pointer;
+    gap: 0.25rem;
+    border-left: none;
+    border-right: none;
+    box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, 0.5);
+}
+
+.contrailTab:hover {
+    background-color: darkgrey;
+    color: white;
+    cursor: pointer;
+}
+
+.contrailTab:active {
+    background-color: skyblue;
+    color: white;
+}
+
+/* font is inherently uppercase but this makes all the characters the same height */
+.archiveTimeStamp {
+    text-transform: lowercase;
+    color: darkgrey;
+}
+
+.contrailTab:hover > .archiveTimeStamp {
+    color: black;
+}
+.contrailTab:hover > .archiveEntry {
+    color: rgb(77, 77, 77);
+}
+
+.archiveEntry {
+    color: lightgrey;
+    font-family: "Work Sans", Arial, Helvetica, sans-serif;
+    font-size: 0.75rem;
 }
 
 .allTabs {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  border-top: 1px dotted grey;
+    height: 100%;
+    width: 100%;
+    white-space: nowrap;
+    overflow-y: auto;
+    border-top: 1px dotted grey;
 }
 
-.box {
-  flex: 1;
+.allTabs::-webkit-scrollbar {
+    width: 0.75rem;
+}
+
+.allTabs::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.allTabs::-webkit-scrollbar-thumb {
+    background-color: rgb(50, 50, 50);
 }
 
 .topHeader {
-  height: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: .3rem;
-  box-shadow: 0px 5px 5px -10px rgba(0,0,0,.2);
-  z-index: 1;
-
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0.3rem;
+    box-shadow: 0px 5px 5px -10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
 
 .topHeaderTitle {
-  font-family: 'Alegreya Sans SC', sans-serif;
-  font-size: 1.5rem;
-  margin-left: 1.5rem;
-  letter-spacing: 2rem;
-  color: rgb(75, 75, 75);
-  text-shadow: 0px 1.5px 5px #ffffff;
-  animation: titleSpacingExpand 3s ease-in-out;
+    font-family: "Alegreya Sans SC", sans-serif;
+    font-size: 1.5rem;
+    margin-left: 1.5rem;
+    animation: titleSpacingExpand 3s ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
- @keyframes titleSpacingExpand {
+@keyframes titleSpacingExpand {
     0% {
-       letter-spacing: .1rem;
-       color: rgb(250, 250, 250);
-       text-shadow: 0px 1.5px 2px #ffffff;
+      color: rgb(0, 0, 0);
+      letter-spacing: 0.1rem;
+      text-shadow: 0px 1.5px 5px #ffffff;
+        /* text-shadow: 0px 1.5px 2px #ffffff; */
     }
- }
+    100% {
+      color: black;
+      letter-spacing: 2rem;
+      text-shadow: 0px 1.5px 10px #ffffff;
+    }
+}
 
 .projectionPanel {
-  display: flex;
-  text-align: left;
-  height: 99.8%;
-  border-left: 3px double skyblue;
+    display: flex;
+    text-align: left;
+    height: 99.8%;
+    border-left: 3px double skyblue;
 }
 
 .projectionBox {
-  padding:.5rem 1rem 0 1rem;
-  flex-grow: 1;
-  resize: none;
-  font-family: 'Work Sans', sans-serif;
-  font-size: 1rem;
-  border: none;
-  background-color: rgb(85, 85, 85);
-  color: rgb(200, 200 ,200)
+    padding: 0.5rem 1rem 0 1rem;
+    flex-grow: 1;
+    resize: none;
+    font-family: "Work Sans", sans-serif;
+    font-size: 1rem;
+    border: none;
+    background-color: rgb(85, 85, 85);
+    color: rgb(200, 200, 200);
 }
 
-.projectionBox::placeholder{
-  font-size: 1rem;
-  padding-top: .05rem;
-  font-family: 'Alegreya Sans SC', sans-serif;
-  color: grey;
+.projectionBox::placeholder {
+    font-size: 1rem;
+    padding-top: 0.05rem;
+    font-family: "Alegreya Sans SC", sans-serif;
+    color: grey;
 }
 
 .projectionBox:focus {
-  border: none;
-}
-
-.hddIconContainer1 {
-  margin-right: .5rem;
-  display: flex;
-  justify-content: center;
-  font-weight: 300;
-  color: darkgrey;
-  cursor: pointer;
-}
-
-.hddIconContainer2 {
-  margin-right: .5rem;
-  display: flex;
-  justify-content: center;
-  font-weight: 300;
-  color: darkgrey;
-  cursor: pointer;
-}
-
-.hddIconContainer1:hover,
-.hddIconContainer2:hover{
-  color: white;
+    border: none;
 }

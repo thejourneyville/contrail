@@ -5,7 +5,7 @@ import "./App.css";
 import Projection from "./components/projection";
 import TopHeader from "./components/topHeader.js";
 import Archive from "./components/archive.js";
-import { handleSave } from "./components/handleSave";
+import { handleSave } from "./utilities/handleSave";
 
 export default function App() {
     const [entries, setEntries] = React.useState(
@@ -14,7 +14,7 @@ export default function App() {
                 {
                     id: createId(),
                     timeStamp: createTimeStamp(),
-                    body: createTimeStamp(),
+                    body: "",
                 },
             ]
     );
@@ -53,7 +53,7 @@ export default function App() {
             const newEntry = {
                 id: createId(),
                 timeStamp: createTimeStamp(),
-                body: createTimeStamp(),
+                body: "",
             };
             setCurrentId(newEntry.id);
             const newArray = currentEntries.map((entry) => entry);
@@ -68,7 +68,7 @@ export default function App() {
             return setEntries((oldEntries) => {
                 const oldEntry = oldEntries[0];
                 localStorage.clear();
-                return [{ ...oldEntry, body: createTimeStamp() }];
+                return [{ ...oldEntry, body: "" }];
             });
         }
         // will set currentIdx of entry succeeding removed entry to hold place
@@ -134,10 +134,9 @@ export default function App() {
                                 <div className="del" onClick={removeEntry}>
                                     -
                                 </div>
-                                {/* <div className="box"></div> */}
                                 <div
                                     className="saveBox"
-                                    // invokes save function to download text file
+                                    // invokes save function to download single entry (1)
                                     onClick={() =>
                                         handleSave(
                                             entries,
@@ -146,7 +145,7 @@ export default function App() {
                                         )
                                     }
                                 >
-                                    <div className="hddIconContainer1">
+                                    <div className="saveEntry">
                                         <span
                                             id="material-symbols-outlines"
                                             className="material-symbols-outlined"
@@ -157,7 +156,7 @@ export default function App() {
                                 </div>
                                 <div
                                     className="saveBox"
-                                    // invokes save function to download text file
+                                    // invokes save function to download entire archive (2)
                                     onClick={() =>
                                         handleSave(
                                             entries,
@@ -166,8 +165,8 @@ export default function App() {
                                         )
                                     }
                                 >
-                                    <div className="hddIconContainer2">
-                                        save all
+                                    <div className="saveAllEntries">
+                                        saveAll
                                     </div>
                                 </div>
                             </div>
@@ -175,6 +174,7 @@ export default function App() {
                             <Archive
                                 entries={entries}
                                 loadCurrentId={loadCurrentId}
+                                currentId={currentId}
                             />
                         </div>
                     </Allotment.Pane>
