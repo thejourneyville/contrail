@@ -13,7 +13,7 @@ export default function App() {
             JSON.parse(localStorage.getItem("entries")) || [
                 {
                     id: createId(),
-                    // timeStamp: createTimeStamp(),
+                    timeStamp: createTimeStamp(),
                     body: "",
                 },
             ]
