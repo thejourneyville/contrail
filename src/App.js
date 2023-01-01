@@ -68,7 +68,7 @@ export default function App() {
             return setEntries((oldEntries) => {
                 const oldEntry = oldEntries[0];
                 localStorage.clear();
-                return [{ ...oldEntry, body: "" }];
+                return [{ ...oldEntry, timeStamp: createTimeStamp(), body: "" }];
             });
         }
         // will set currentIdx of entry succeeding removed entry to hold place
