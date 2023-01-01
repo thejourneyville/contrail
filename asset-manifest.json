@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/contrail/static/css/main.e470f081.css",
-    "main.js": "/contrail/static/js/main.a80a17bf.js",
+    "main.js": "/contrail/static/js/main.13ae99b7.js",
     "index.html": "/contrail/index.html",
     "main.e470f081.css.map": "/contrail/static/css/main.e470f081.css.map",
-    "main.a80a17bf.js.map": "/contrail/static/js/main.a80a17bf.js.map"
+    "main.13ae99b7.js.map": "/contrail/static/js/main.13ae99b7.js.map"
   },
   "entrypoints": [
     "static/css/main.e470f081.css",
-    "static/js/main.a80a17bf.js"
+    "static/js/main.13ae99b7.js"
   ]
 }
