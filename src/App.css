@@ -144,6 +144,7 @@ body {
     width: 100%;
     white-space: nowrap;
     overflow-y: auto;
+    overflow-x: hidden;
     border-top: 1px dotted grey;
 }
 
@@ -179,15 +180,15 @@ body {
 }
 @keyframes titleSpacingExpand {
     0% {
-      color: rgb(0, 0, 0);
-      letter-spacing: 0.1rem;
-      text-shadow: 0px 1.5px 5px #ffffff;
+        color: rgb(0, 0, 0);
+        letter-spacing: 0.1rem;
+        text-shadow: 0px 1.5px 5px #ffffff;
         /* text-shadow: 0px 1.5px 2px #ffffff; */
     }
     100% {
-      color: black;
-      letter-spacing: 2rem;
-      text-shadow: 0px 1.5px 10px #ffffff;
+        color: black;
+        letter-spacing: 2rem;
+        text-shadow: 0px 1.5px 10px #ffffff;
     }
 }
 
